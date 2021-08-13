@@ -1,4 +1,4 @@
-# jwt_auth_crud_frontend
+# Live Cricket
 
 ## Project setup
 ```
