@@ -1,7 +1,2 @@
 
-export const routes = [
-    {
-        path: '/',
-        name: 'login',
-    },
-]
+export const routes = []

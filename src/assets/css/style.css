@@ -1,0 +1,92 @@
+body{
+    font-family: AustinNewstextRoman,Georgia,Times,serif;
+}
+
+.content-wrapper {
+    min-height: 100vh;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-wrapper .tab-header {
+    display: flex;
+    justify-content: space-between;
+}
+.content-wrapper .tab-header .nav-tabs .nav-item .nav-link {
+    padding: 0.65rem 1.5em;
+    color: var(--bs-white);
+    font-weight: 500;
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--bs-dark);
+    transition: 0.35s;
+}
+.content-wrapper .tab-header .nav-tabs .nav-item .nav-link.active {
+    padding: 0.65rem 1.85rem;
+    color: var(--bs-dark);
+    background-color: var(--bs-white);
+}
+.content-wrapper .tab-header ul.nav li .dropdown .dropdown-toggle {
+    padding: 0.65rem 1.5em;
+    color: var(--bs-dark);
+    font-weight: 500;
+    border-radius: 1rem 1rem 0 0;
+    background-color: transparent;
+    transition: 0.35s;
+    border: 1px solid var(--bs-gray-300);
+    border-bottom: none;
+}
+.content-wrapper .tab-header ul.nav li .dropdown .dropdown-toggle:focus {
+    box-shadow: none;
+}
+.content-wrapper .tab-content .tab-pane .items-row {
+    border-bottom: 1px solid var(--bs-gray-300);
+}
+.content-wrapper .tab-content .tab-pane .items-row .column {
+    padding: 2rem 0.5rem;
+}
+.content-wrapper .tab-content .tab-pane .items-row .column:nth-of-type(1) a {
+    color: var(--bs-dark);
+    font-size: 13px;
+    text-decoration: none;
+}
+.content-wrapper .tab-content .tab-pane .items-row .column:nth-of-type(1) a span {
+    position: relative;
+    display: inline-block;
+    padding: 5px 12px;
+    margin: 0 5px 0 10px;
+    color: var(--bs-white);
+    font-weight: 500;
+    border-radius: 0.35rem;
+    background-color: var(--bs-dark);
+}
+.content-wrapper .tab-content .tab-pane .items-row .column:nth-of-type(1) a span:before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bs-dark);
+    transform: translateY(-50%);
+}
+.content-wrapper .tab-content .tab-pane .items-row:last-child {
+    border-bottom: 0;
+}
+.content-wrapper .tab-content .tab-pane .btn-load-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 30px;
+    color: var(--bs-white);
+    font-weight: 600;
+    font-size: 14px;
+
+    border-radius: 5px;
+    background-color: #38a9ff;
+}
+.content-wrapper .tab-content .tab-pane .btn-load-more:hover {
+    background-color: #0593ff;
+}

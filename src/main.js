@@ -3,6 +3,7 @@ import App from './App.vue';
 import {routes} from "./router/index";
 import VueRouter from "vue-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './assets/css/style.css';
 import axios from "axios";
 
 axios.defaults.baseURL = "https://rest.entitysport.com/v2/";
