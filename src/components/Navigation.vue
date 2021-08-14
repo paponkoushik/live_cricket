@@ -67,58 +67,40 @@
                         </ul>
                     </div>
 
-                    <div id="myTabContent" class="tab-content">
+                    <div id="myTabContent" class="tab-content" >
                         <div id="liveAndUpcoming" class="tab-pane fade show active">
-                            <div class="d-flex flex-wrap align-items-center justify-content-between items-row">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between items-row" v-for="(match, index) in matches" :key="index">
                                 <div class="column">
                                     <a class="text-uppercase d-inline-flex align-items-center" href="#">
-                                        <span>LIVE</span> 2ND TEST
+                                        <span>{{ match.competition.status }}</span> {{ match.subtitle}}
                                     </a>
                                 </div>
                                 <div class="column flex-shrink-0">
                                     <div class="text-center mb-2">
-                                        <p class="small mb-0">Lord's, London, London</p>
-                                        <p class="small mb-0">12 Aug, 21 Local Time, London, London</p>
+                                        <p class="small mb-0">{{ match.venue.name }}</p>
+                                        <p class="small mb-0">{{dateConvert(match.date_start)}}, {{match.venue.location}}</p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <div class="d-inline-flex align-items-center">
                                             <div class="text-end me-3">
-                                                <p class="fw-bold mb-0">England</p>
-                                                <h5 class="mb-0">*276/3 (90 ov)</h5>
+                                                <p class="fw-bold mb-0">{{match.teama.name}}</p>
+                                                <h5 class="mb-0">*{{match.teama.scores_full}}</h5>
                                             </div>
-                                            <img alt="" class="img-fluid" height="40" src="" width="40">
+                                            <img alt="" :src="`${match.teama.logo_url}`" class="img-fluid" height="40" width="40">
                                         </div>
                                         <p class="fw-bold mx-3 mb-0">VS</p>
                                         <div class="d-inline-flex align-items-center">
-                                            <img alt="" class="img-fluid" height="40" src="img/india.png" width="40">
+                                            <img alt="" class="img-fluid" height="40" :src="`${match.teamb.logo_url}`" width="40">
                                             <div class="ms-3">
-                                                <p class="fw-bold mb-0">India</p>
-                                                <h5 class="mb-0">Not yet Bat</h5>
+                                                <p class="fw-bold mb-0">{{match.teamb.name}}</p>
+                                                <h5 class="mb-0">{{match.teamb.scores_full}}</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="column">
-                                    <h6 class="fw-bolder mb-0">4:15 PM</h6>
+                                    <h6 class="fw-bolder mb-0">{{formatAMPM(match.date_start)}}</h6>
                                 </div>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <button class="btn btn-load-more" type="button">LOAD MORE +</button>
-                            </div>
-                        </div>
-                        <div id="result" class="tab-pane fade">
-                            <div class="d-flex flex-column align-items-center justify-content-center"
-                                 style="min-height: 450px;">
-                                <img alt="" class="img-fluid" src="img/empty.png" width="350">
-                                <h2 class="text-center">This area of the page is under construction</h2>
-                            </div>
-                        </div>
-                        <div id="calendar" class="tab-pane fade">
-                            <div class="d-flex flex-column align-items-center justify-content-center"
-                                 style="min-height: 450px;">
-                                <img alt="" class="img-fluid" src="img/empty.png" width="350">
-                                <h2 class="text-center">This area of the page is under construction</h2>
                             </div>
                         </div>
                     </div>
@@ -131,13 +113,16 @@
 <script>
 
 import axios from "axios";
+import {dateConvert, formatAMPM} from "../assets/js/helpers";
 
 export default {
     name: "Navigation",
 
     data() {
         return {
-            matches: []
+            matches: [],
+            dateConvert,
+            formatAMPM
         }
     },
     created() {
@@ -151,7 +136,7 @@ export default {
                 console.log(this.matches);
             }).catch(()=>{
             })
-        }
+        },
     }
 
 }
