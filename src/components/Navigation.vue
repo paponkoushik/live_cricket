@@ -133,7 +133,7 @@ export default {
         getMatches() {
             axios.get('matches/?status=2&format=6&token='+ this.$accessToken + '&per_page=10&paged=1').then(({data}) =>{
                 this.matches = data.response.items;
-                console.log(this.matches);
+
             }).catch(()=>{
             })
         },

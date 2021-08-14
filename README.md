@@ -1,5 +1,5 @@
 # Live Cricket
-
+``` You need to ensure that you have npm with 6.14.12 version or avobe ```
 ## Project setup
 ```
 npm install
